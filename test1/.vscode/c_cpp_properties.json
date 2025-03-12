@@ -1,22 +1,21 @@
 {
     "configurations": [
-        {
-            "name": "Mac",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "/Users/Sib/esp/esp-idf/**",
-                "/Users/Sib/esp/esp-idf/components/newlib/platform_include",
-                "/Users/Sib/esp/esp-idf/components/newlib/platform_include"
-            ],
-            "defines": [],
-            "macFrameworkPath": [
-                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-            ],
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "macos-clang-x64"
+      {
+        "name": "ESP32-C6",
+        "includePath": [
+          "${workspaceFolder}/**",
+          "${env:IDF_PATH}/components/**",
+          "${env:IDF_PATH}/tools/**"
+        ],
+        "defines": [
+          "ESP32_C6"
+        ],
+        "intelliSenseMode": "gcc-x64",
+        "browse": {
+          "limitSymbolsToIncludedHeaders": true
         }
+      }
     ],
     "version": 4
 }
+  
