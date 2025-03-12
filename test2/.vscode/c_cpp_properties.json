@@ -1,0 +1,21 @@
+{
+    "configurations": [
+      {
+        "name": "ESP32-C6",
+        "includePath": [
+          "${workspaceFolder}/**",
+          "${env:IDF_PATH}/components/**",
+          "${env:IDF_PATH}/tools/**"
+        ],
+        "defines": [
+          "ESP32_C6"
+        ],
+        "intelliSenseMode": "gcc-x64",
+        "browse": {
+          "limitSymbolsToIncludedHeaders": true
+        }
+      }
+    ],
+    "version": 4
+}
+  
