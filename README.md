@@ -26,9 +26,26 @@ git clone --recursive https://github.com/espressif/esp-idf.git
 now we should go to root of our project:
 - set target \
 idf.py set-target esp32c6
+- before build the project if need configuration\
+idf.py menuconfig
 - build project \
 idf.py build
 - flash output on target board \
 idf.py -p PORT flash \
 **note: PORT should be found in your devic list** \
-@macos command is like this: idf.py -p /dev/cu.wchusbserial58FC0539021 flash
+@macos command is like this:\
+idf.py -p /dev/cu.wchusbserial58FC0539021 flash
+
+## Debugging
+for debugging we can use any terminal
+- in macocX (terminal or zsh of vscode): 
+```
+screen /dev/cu.wchusbserial58FC0539021 115200
+```
+- in macosX bash (vscode):\
+idf.py -p /dev/cu.wchusbserial58FC0539021 monitir\
+*to exit: press Ctrl + ] (Control key + Right Bracket).*
+- in windows:\
+idf.py -p COM\# monitor
+
+
