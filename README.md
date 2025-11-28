@@ -1,6 +1,33 @@
 # ESP32
+## building with docker image
+- complete information is [here](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-docker-image.html)
 
-## install tools:
+- to start building a project just run this: 
+```
+docker run --rm -v $PWD:/project -w /project -u $UID -e HOME=/tmp espressif/idf:latest idf.py build
+```
+- to access al command of idf.py we can run as interactive:
+```
+docker run --rm -v $PWD:/project -w /project -u $UID -e HOME=/tmp -it espressif/idf:latest
+```
+
+Note: before start build a project we should set target (esp32, esp32s2, esp32s3, esp32c3, esp32c6, esp32h2, ...):
+```
+idf.py set-target esp32c6
+```
+**Commands which communicate with the development board, such as idf.py flash and idf.py monitor does not work in the container, unless the serial port is passed through into the container.**\
+
+Note: output is usually 3 files: 
+- bootloader(0x0) 
+- partition-table(0x8000)
+- application(0x10000)
+
+merge-bin can merge all 3 binary files and make a single files flashing start from address 0x0000
+```
+iidf.py merge-bin -o my-merged-binary.bin -f raw
+```
+---
+## install build tools (locally):
 - just clone [esp-idf](https://github.com/espressif/esp-idf), currently I'm using release/V5.3 branch.\
 mkdir -p /your/custom/path\
 cd /your/custom/path
